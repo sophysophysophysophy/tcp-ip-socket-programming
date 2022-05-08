@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
     for (int i = 0; i < limitNum; i++) {
         printf("숫자 입력: ");
         scanf("%d", &numArr[i]);
-    }
+    }   
     
     printf("짝수\n");
     for (int j = 0; j < limitNum; j++) {
