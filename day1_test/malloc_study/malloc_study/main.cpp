@@ -46,29 +46,144 @@
 
 #include <stdio.h>
 //#include <malloc.h> // 동적할당에 관한 기능들이 정의된 헤더파일
-#include <stdlib.h> // malloc 라이브러리 포함한 헤더 파일.
+#include <stdlib.h> // malloc 라이브러리 포함한 헤더 파일. srand, rand함수가 정의된 헤더파일
 #include <string.h>
+#include <time.h>   // 시간과 관련된 함수들이 정의된 헤더파일
+
+
+void inputLimitNum(int &limitNum) {
+    printf("대문자 갯수 입력 : ");
+    scanf("%d" , &limitNum);
+}
+
+void printRandomVal(int limitNum, int *result) {
+    puts("*** 랜덤 알파벳 출력***");
+//    rand
+//    - 어떠한 기준(seed)에 의해서 0 ~65535까지의 임의의 수를 반환하는 함수
+//
+//   srand
+//    - rand함수의 seed값을 설정하는 함수
+//    - 매개변수가 unsigned int 타입의 정수이다.
+//    - 일반적으로 인자값을 time함수의 반환값으로 설정
+    
+//    time
+//    - 1970년 1월 1일 0시 0분 0초부터 지금까지의 시간을 초 단위로 반환하는 함수
+//    - 인자값으로 NULL을 넣어준다.
+    
+//    범위 안에 수 구하기
+//    rand() % (범위 안 숫자의 개수) + 시작수
+    
+    srand((unsigned)time(NULL));
+    
+    int j = 0 ;
+    for (int i = 0; i < limitNum; i++) {
+        char ramdomVal = 'A' + rand() % 26;
+        printf("%c " , ramdomVal);
+        result[ramdomVal - 'A']++;
+        
+        if(j > 14) {
+            printf("\n");
+            j = 0;
+        } else j++;
+    }
+}
+
+void printRandomValCnt(char *alpha, int *result) {
+    int j = 0;
+    for (int i = 0; i < 26; i++) {
+        if(result[i] > 0) {
+            
+            printf("%c : %d개 ", alpha[i], result[i]);
+            if(j > 2) {
+                printf("\n");
+                j = 0;
+            } else j++;
+        }
+    }
+    puts("\n");
+}
+
 void test() {
 //    srand((unsigned int)time(NULL));
     
     int limitNum ;
-//    int arr[] = {'A' , 'B', 'C', 'D', 'F', };
     char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    int result[26] ;
+    for (int i = 0; i < 26; i++) {
+        result[i] = 0;
+    }
+    
+    inputLimitNum(limitNum);
+
+    puts("\n");
+    
+    printRandomVal(limitNum, result);
+    
+    puts("\n");
+    
+    printRandomValCnt(alpha, result);
+    
+    
+    
+}
+
+int input() {
+    int su;
     printf("대문자 갯수 입력 : ");
-    scanf("%d" , &limitNum);
-    
-    for (int i = 0; i < strlen(alpha); i++) {
-        printf("%c\n", alpha[i]);
+    scanf("%d", &su);
+    return su;
+}
+
+void setData(char* pt, int su) {
+    for (int i = 0; i < su; i++) {
+        pt[i] = rand() % 26 + 65;
     }
     
-    for (int i = 0; i < limitNum; i++) {
-        char ramdomVal = 'A' + rand() % 26;
-        printf("%c\n" , ramdomVal);
+}
+void disp(char* pt, int su) {
+    for (int i = 0 ; i< su; i++) {
+        printf("%-2c",pt[i]);   
         
+        if(i % 16 == 15 || i == su - 1){
+            puts("\n");
+        }
     }
-    puts("*** 랜덤 알파벳 출력***");
+}
+
+void eaDisp(char* pt, int su) {
     
+    int row = 0 ;
+    for (char ch = 'A'; ch <= 'Z'; ch++) {
+        int cnt = 0 ;
+        for (int i = 0; i < su; i++) {
+            if (ch == pt[i]) {
+                cnt++;
+            }
+        }
+        if (cnt) {
+            printf("%c : %2d개 ", ch, cnt);
+            row++;
+            if ( row % 4 == 0 || ch == 'Z') {
+                printf("\n");
+            }
+        } else if (ch == 'Z' && row % 4 != 0) {
+            printf("\n");
+        }
+    }
+}
+
+void answer() {
+    srand((unsigned) time(NULL));
+    int su = input();
+    char* pt =(char*)malloc(su);
     
+    setData(pt, su);
+    
+    disp(pt, su);
+    
+    eaDisp(pt, su);
+    
+    free(pt);
 }
 
 int main(void) {
@@ -94,7 +209,8 @@ int main(void) {
 //    동적할당 해제 함수 - free
     free(pt);
     
-    test() ;
+//    test() ;
+    answer();
     return 0;
 }
 
