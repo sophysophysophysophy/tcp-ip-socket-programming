@@ -50,10 +50,10 @@ int compare(const void *m, const void *n) {
 }
 
 void printResultScores(info *infoPointer, int studentCnt) {
-    printf("%3s %4s %4s %4s %4s %4s\n", "이름",  "국어", "영어", "수학", "총점","순위");
+    puts("이름\t국어\t영어\t수학\t총점\t순위");
     for (int i = 0; i < studentCnt; i++) {
         infoPointer[i].grade = i + 1;
-        printf("%3s %-3d %-3d %-3d %-3d %-1d\n"
+        printf("%s\t%d\t%d\t%d\t%d\t%d\n"
                ,infoPointer[i].name, infoPointer[i].koreanScore, infoPointer[i].englishScore, infoPointer[i].mathScore, infoPointer[i].totalScore ,infoPointer[i].grade);
     }
 }

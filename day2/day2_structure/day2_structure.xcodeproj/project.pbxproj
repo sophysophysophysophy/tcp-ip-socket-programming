@@ -28,6 +28,8 @@
 		98B8DA98282F4EB200EBDE9E /* problem1.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = problem1.cpp; sourceTree = "<group>"; };
 		98B8DAA1282F650100EBDE9E /* problem1TeacherCode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = problem1TeacherCode.cpp; sourceTree = "<group>"; };
 		98B8DAA7282F681000EBDE9E /* problem2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = problem2.cpp; sourceTree = "<group>"; };
+		98B8DAAD2830837D00EBDE9E /* problem2TeacherCode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = problem2TeacherCode.cpp; sourceTree = "<group>"; };
+		98B8DAB028308BB800EBDE9E /* problem3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = problem3.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,8 @@
 				98B8DA98282F4EB200EBDE9E /* problem1.cpp */,
 				98B8DAA1282F650100EBDE9E /* problem1TeacherCode.cpp */,
 				98B8DAA7282F681000EBDE9E /* problem2.cpp */,
+				98B8DAAD2830837D00EBDE9E /* problem2TeacherCode.cpp */,
+				98B8DAB028308BB800EBDE9E /* problem3.cpp */,
 			);
 			path = day2_structure;
 			sourceTree = "<group>";

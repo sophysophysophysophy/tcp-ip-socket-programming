@@ -9,11 +9,17 @@
 #include "problem1.cpp"
 #include "problem1TeacherCode.cpp"
 #include "problem2.cpp"
+#include "problem2TeacherCode.cpp"
+#include "problem3.cpp"
+
 
 int main(int argc, const char * argv[]) {
 //    problem1();
 //    problem1TeachCode();
     
-    problem2();
+//    problem2();
+//    problem2TeacherCode();
+    
+    problem3();
     return 0;
 }
