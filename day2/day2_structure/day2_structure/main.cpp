@@ -11,7 +11,7 @@
 #include "problem2.cpp"
 #include "problem2TeacherCode.cpp"
 #include "problem3.cpp"
-
+#include "problem3TeacherCode.cpp"
 
 int main(int argc, const char * argv[]) {
 //    problem1();
@@ -20,6 +20,7 @@ int main(int argc, const char * argv[]) {
 //    problem2();
 //    problem2TeacherCode();
     
-    problem3();
+//    problem3();
+    problem3TeacherCode();
     return 0;
 }
