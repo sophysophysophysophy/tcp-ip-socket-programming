@@ -118,12 +118,56 @@
 //
 //        네트워크에서는 빅엔디안 방식으로 통일하여 데이터를 전송
 //        CPU마다 저장하는 방식이 다르기 때문에 리틀엔디안 방식의 컴퓨터에서는 데이터를 변환하여 전송하여야 함
+//--------------------------------------------------------------------------------------
+//
+//    바이트 정렬 함수
+//        매개변수는 항상 unsigned의 값을 적어야 한다.
+//
+//    u_short htons() - Hosts to Network Short
+//    u_long htonl() - Hosts to Network Long
+//    u_short ntohs() - Network to Hosts Short
+//    u_long ntohl() - Network to Hosts Loong
+//
+//--------------------------------------------------------------------------------------
+//
+//    ip주소 변환 함수
+//        192.168.0.6
+//        문자열 형태의 ip주소를 32비트의 숫자로 변환하는 함수
+//        네트워크 바이트로 정렬하여 변환
+//
+//    unsigned long inet_addr( const char * cp) ;
+//        const char * cp - 문자열 형태의 아이피 주소
+//        반환값 - 32비트로 변환된 ip주소 실패시 -1반환
+//
+//     INT inet_pton( INT Family, PCSTR pszAddrString, PVOID pAddrBuf );
+//
+//        INT Family : 주소체계
+//        PCSTR pszAddrString : 문자열 형태의 IP주소
+//        PVOID pAddrBuf : 저장할 공간의 주소
+//        실패시 0 반환
+//
+//    정수로 변환된 IP주소를 문자열로 변환하는 함수
+//        호스트바이트로 자동 정렬됨
+//
+//    char * inet_ntoa( struct in_addr in ) ;
+//        struct in_addr in : 32bit의 IP주소
+//        반환값은 ip문자열의 주소, 실패시 -1을 반환
+//
+//    PCSTR inet_ntop( INT Family, const VOID * pAddr, PSTR pStringBuf, size_t StringBufSize );
+//        INT Family : 주소 체계
+//        const VOID * pAddr : 변환될 ip공간의 주소
+//         PSTR pStringBuf : 변환될 IP가 저장된 공간의 주소
+//        size_t StringBufSize : buf의 크기
+
 
 #include "exam1.cpp"
+#include "exam2.cpp"
+#include "exam3.cpp"
 
 int main(int argc, const char * argv[]) {
     
-    exam1();
-    
+//    exam1();
+//    exam2();
+    exam3();
     return 0;
 }
